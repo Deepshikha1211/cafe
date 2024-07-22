@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online - Vintage Brews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .main {
+            position: relative;
+        }
+
+        .main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("cafe1.avif");
+            background-size: cover; /* Ensures the background image covers the container */
+            filter: blur(5px); /* Adjust the blur amount as needed */
+            z-index: -1; /* Sends the blurred background image behind the content */
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #fcf9f9;
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 60px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: rgba(92, 13, 13, 0.651);
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-right: auto;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-left: 1rem;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin-right: 2rem;
+        }
+
+        .navbar-menu a {
+            color: rgba(92, 13, 13, 0.651);
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .navbar-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+
+        .search-container input[type="text"] {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: rgb(245, 69, 69);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 0.5rem;
+        }
+
+        .search-container button:hover {
+            background-color: #d9534f;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 48px;
+            margin: 0;
+            background-color: #6b4f4f;
+            color: #fff;
+            text-align: center;
+            padding: 28px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* Adjusting margin to prevent overlap with fixed navbar */
+        }
+
+        main {
+            padding: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Extra margin to ensure separation from h1 */
+        }
+
+        form {
+            display: grid;
+            gap: 16px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #6b4f4f;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #553838;
+        }
+
+        footer {
+            background-color: rgb(179, 178, 178);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        footer iframe {
+            border: 0;
+            width: 100%;
+            height: 450px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cafe-footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .cafe-footer .footer-sections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+       
+
+        .cafe-footer h4 {
+            margin-bottom: 10px;
+        }
+
+        .cafe-footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-left: 5rem;
+        }
+
+        .social-links h4{
+            margin-left: 5rem;
+        }
+
+        .cafe-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .cafe-footer .footer-bottom {
+            width: 100%;
+            text-align: center;
+        }
+
+        .cafe-footer hr {
+            border: 0;
+            border-top: 1px solid white;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    Vintage Brews
+                    <img class="logo" src="icon2.png">
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="index.html" target="_blank">Home</a></li>
+                    <li><a href="cafe_menu.html" target="_blank">Menu</a></li>
+                    <li><a href="cafe_about.html" target="_blank">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button>Search</button>
+                </div>
+            </nav>
+        </header>
+        
+        <br>
+        <h1>Order Online</h1>
+        
+        <main>
+            <form action="order_confirmation.html" method="post">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Delivery Address</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+
+                <label for="items">Select Items</label>
+                <select id="items" name="items" multiple required>
+                    <option value="Cappuccino">$4.00 - Cappuccino</option>
+                    <option value="Latte">$4.50 - Latte</option>
+                    <option value="Espresso">$2.50 - Espresso</option>
+                    <option value="Mocha">$5.00 - Mocha</option>
+                    <option value="Tea">$3.00 - Tea</option>
+                    <option value="Hot Chocolate">$3.50 - Hot Chocolate</option>
+                    <option value="Iced Coffee">$3.50 - Iced Coffee</option>
+                    <option value="Matcha Latte">$4.75 - Matcha Latte</option>
+                    <option value="Americano">$3.00 - Americano</option>
+                    <option value="Chai Latte">$4.00 - Chai Latte</option>
+                    <option value="Croissant">$2.50 - Croissant</option>
+                    <option value="Muffin">$2.75 - Muffin</option>
+                    <option value="Scone">$3.00 - Scone</option>
+                    <option value="Donut">$1.50 - Donut</option>
+                </select>
+
+                <label for="comments">Special Instructions</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+
+                <button type="submit">Place Order</button>
+            </form>
+        </main>
+
+        <footer class="cafe-footer">
+            <h2>View on Map</h2>
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27456.98129968937!2d76.80378908280807!3d30.658674242670497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feb365ab1fd83%3A0x4bd8ef389a18e7cc!2sZirakpur%2C%20Punjab!5e0!3m2!1sen!2sin!4v1721560699745!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <hr>
+            <div class="footer-content">
+                <div class="footer-sections">
+                    <div class="social-links">
+                        <h4>Follow Us</h4>
+                        <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Contact Us</h4>
+                        <p>123 Café Street</p>
+                        <p>Cafe Town, India 12345</p>
+                        <p>Phone: (123) 456-7890</p>
+                        <p>Email: info@vintagebrews.com</p>
+                    </div>
+                    <div class="hours-of-operation">
+                        <h4>Hours of Operation</h4>
+                        <p>Mon - Fri: 7:00 AM - 9:00 PM</p>
+                        <p>Sat - Sun: 8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <hr>
+                    <p>&copy; 2024 Vintage Brews. All rights reserved.</p>
+                </div>
+            </div>
+
+            
+        </footer>
+    </div>
+</body>
+</html>

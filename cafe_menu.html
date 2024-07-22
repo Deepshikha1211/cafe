@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        .main {
+            position: relative;
+        }
+
+        .main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("cafe3.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #fcf9f9;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 60px;
+            z-index: 1;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: rgba(92, 13, 13, 0.651);
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-right: auto;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-left: 1rem;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin-right: 2rem;
+        }
+
+        .navbar-menu a {
+            color: rgba(92, 13, 13, 0.651);
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .navbar-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+
+        .search-container input[type="text"] {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: rgb(245, 69, 69);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 0.5rem;
+        }
+
+        .search-container button:hover {
+            background-color: #d9534f;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-category {
+            grid-column: 1 / -1;
+            background-color: #d5a47f;
+            color: #fff;
+            text-align: center;
+            padding: 16px;
+            margin: 16px 0;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        .head {
+            grid-column: 1 / -1;
+           
+            color: #fff;
+            text-align: center;
+           
+            margin: 10px 0;
+          
+            font-weight: bold;
+            border-radius: 10px;
+
+text-decoration: underline;
+            font-family: 'Lobster', cursive;
+           
+            font-size: 52px;
+            color: #6b4f4f;
+          
+            margin-top: 0; 
+        }
+
+        .menu-item {
+            background-color: #fff;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+      
+
+        h2 {
+            margin: 0 0 8px;
+            font-size: 28.8px;
+            color: #6b4f4f;
+        }
+
+        p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #d5a47f;
+            margin-top: 16px;
+            font-size: 19.2px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .price {
+                font-size: 17.6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    Vintage Brews
+                    <img class="logo" src="icon2.png">
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="index.html" target="_blank">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="cafe_about.html" target="_blank">About</a></li>
+                    <li><a href="order_confirmation.html" target="_blank">Contact</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button>Search</button>
+                </div>
+            </nav>
+        </header>
+        <br><br>
+      
+       
+        <main class="menu">
+         <br>
+            <div class="head">Cafe's Menu</div>
+            <!-- Drinks -->
+            <div class="menu-category">Drinks</div>
+            <div class="menu-item">
+                <h2>Cappuccino</h2>
+                <p>Espresso with steamed milk and a layer of foam.</p>
+                <p class="price">₹300</p>
+            </div>
+            <div class="menu-item">
+                <h2>Latte</h2>
+                <p>Espresso with steamed milk and a light layer of foam.</p>
+                <p class="price">₹340</p>
+            </div>
+            <div class="menu-item">
+                <h2>Espresso</h2>
+                <p>Strong and bold shot of coffee.</p>
+                <p class="price">₹190</p>
+            </div>
+            <div class="menu-item">
+                <h2>Mocha</h2>
+                <p>Espresso with chocolate syrup, steamed milk, and whipped cream.</p>
+                <p class="price">₹380</p>
+            </div>
+            <div class="menu-item">
+                <h2>Tea</h2>
+                <p>Various selections of brewed teas.</p>
+                <p class="price">₹230</p>
+            </div>
+            <div class="menu-item">
+                <h2>Hot Chocolate</h2>
+                <p>Rich and creamy hot chocolate.</p>
+                <p class="price">₹270</p>
+            </div>
+            <div class="menu-item">
+                <h2>Iced Coffee</h2>
+                <p>Cold brew coffee served over ice.</p>
+                <p class="price">₹270</p>
+            </div>
+            <div class="menu-item">
+                <h2>Matcha Latte</h2>
+                <p>Matcha green tea with steamed milk.</p>
+                <p class="price">₹370</p>
+            </div>
+            <div class="menu-item">
+                <h2>Americano</h2>
+                <p>Espresso with hot water.</p>
+                <p class="price">₹230</p>
+            </div>
+            <!-- Pastries -->
+            <div class="menu-category">Pastries</div>
+            <div class="menu-item">
+                <h2>Croissant</h2>
+                <p>Buttery, flaky pastry.</p>
+                <p class="price">₹190</p>
+            </div>
+            <div class="menu-item">
+                <h2>Muffin</h2>
+                <p>Blueberry, chocolate chip, or bran.</p>
+                <p class="price">₹210</p>
+            </div>
+            <div class="menu-item">
+                <h2>Scone</h2>
+                <p>Classic, blueberry, or cranberry.</p>
+                <p class="price">₹230</p>
+            </div>
+            <div class="menu-item">
+                <h2>Donut</h2>
+                <p>Assorted flavors and fillings.</p>
+                <p class="price">₹140</p>
+            </div>
+            <div class="menu-item">
+                <h2>Cinnamon Roll</h2>
+                <p>Warm and gooey cinnamon roll with icing.</p>
+                <p class="price">₹270</p>
+            </div>
+            <div class="menu-item">
+                <h2>Bagel</h2>
+                <p>Plain, sesame, or everything with cream cheese.</p>
+                <p class="price">₹160</p>
+            </div>
+            <div class="menu-item">
+                <h2>Brownie</h2>
+                <p>Rich and fudgy chocolate brownie.</p>
+                <p class="price">₹250</p>
+            </div>
+            <div class="menu-item">
+                <h2>Cookie</h2>
+                <p>Chocolate chip, oatmeal raisin, or peanut butter.</p>
+                <p class="price">₹130</p>
+            </div>
+            <div class="menu-item">
+                <h2>Macarons</h2>
+                <p>Assorted flavors.</p>
+                <p class="price">₹130 each</p>
+            </div>
+    
+            <!-- Sandwiches -->
+            <div class="menu-category">Sandwiches</div>
+            <div class="menu-item">
+                <h2>Ham & Cheese</h2>
+                <p>Ham, cheddar cheese, and mustard.</p>
+                <p class="price">₹500</p>
+            </div>
+            <div class="menu-item">
+                <h2>Turkey Club</h2>
+                <p>Turkey, bacon, lettuce, tomato, and mayo.</p>
+                <p class="price">₹600</p>
+            </div>
+            <div class="menu-item">
+                <h2>Veggie Delight</h2>
+                <p>Cucumber, bell peppers, lettuce, tomato, and hummus.</p>
+                <p class="price">₹500</p>
+            </div>
+            <div class="menu-item">
+                <h2>Chicken Salad</h2>
+                <p>Chicken salad with celery and grapes on a croissant.</p>
+                <p class="price">₹750</p>
+            </div>
+            <div class="menu-item">
+                <h2>Tuna Melt</h2>
+                <p>Tuna salad and melted cheese on toasted bread.</p>
+                <p class="price">₹565</p>
+            </div>
+            <div class="menu-item">
+                <h2>Grilled Cheese</h2>
+                <p>Classic grilled cheese sandwich.</p>
+                <p class="price">₹380</p>
+            </div>
+            <div class="menu-item">
+                <h2>BLT</h2>
+                <p>Bacon, lettuce, tomato, and mayo.</p>
+                <p class="price">₹400</p>
+            </div>
+            <div class="menu-item">
+                <h2>Roast Beef</h2>
+                <p>Roast beef, cheddar cheese, and horseradish sauce.</p>
+                <p class="price">₹520</p>
+            </div>
+            <div class="menu-item">
+                <h2>Chicken Caesar Wrap</h2>
+                <p>Grilled chicken, romaine lettuce, and Caesar dressing.</p>
+                <p class="price">₹670</p>
+            </div>
+    
+            <!-- Salads -->
+            <div class="menu-category">Salads</div>
+            <div class="menu-item">
+                <h2>Caesar Salad</h2>
+                <p>Romaine lettuce, croutons, and Parmesan cheese.</p>
+                <p class="price">₹400</p>
+            </div>
+            <div class="menu-item">
+                <h2>Greek Salad</h2>
+                <p>Romaine lettuce, olives, feta cheese, tomatoes, and cucumbers.</p>
+                <p class="price">₹580</p>
+            </div>
+            <div class="menu-item">
+                <h2>Garden Salad</h2>
+                <p>Mixed greens, tomatoes, cucumbers, and carrots.</p>
+                <p class="price">₹350</p>
+            </div>
+            <div class="menu-item">
+                <h2>Chicken Salad</h2>
+                <p>Grilled chicken, mixed greens, tomatoes, and cucumbers.</p>
+                <p class="price">₹480</p>
+            </div>
+            <div class="menu-item">
+                <h2>Cobb Salad</h2>
+                <p>Mixed greens, chicken, bacon, eggs, tomatoes, and blue cheese.</p>
+                <p class="price">₹350</p>
+            </div>
+            <div class="menu-item">
+                <h2>Caprese Salad</h2>
+                <p>Tomatoes, fresh mozzarella, basil, and balsamic glaze.</p>
+                <p class="price">₹460</p>
+            </div>
+            <div class="menu-item">
+                <h2>Quinoa Salad</h2>
+                <p>Quinoa, mixed greens, tomatoes, cucumbers, and lemon vinaigrette.</p>
+                <p class="price">₹575</p>
+            </div>
+            <div class="menu-item">
+                <h2>Fruit Salad</h2>
+                <p>Mixed fresh fruit.</p>
+                <p class="price">₹320</p>
+            </div>
+            <div class="menu-item">
+                <h2>Green Salad</h2>
+                <p>lettuce, olives, cheese, tomatoes, and cucumbers.</p>
+                <p class="price">₹120</p>
+            </div>
+    
+            <!-- Desserts -->
+            <div class="menu-category">Desserts</div>
+            <div class="menu-item">
+                <h2>Chocolate Cake</h2>
+                <p>Rich and moist chocolate cake.</p>
+                <p class="price">₹360</p>
+            </div>
+            <div class="menu-item">
+                <h2>Apple Pie</h2>
+                <p>Classic apple pie with a flaky crust.</p>
+                <p class="price">₹320</p>
+            </div>
+            <div class="menu-item">
+                <h2>Brownie</h2>
+                <p>Fudgy chocolate brownie.</p>
+                <p class="price">₹180</p>
+            </div>
+            <div class="menu-item">
+                <h2>Ice Cream</h2>
+                <p>Various flavors of ice cream.</p>
+                <p class="price">₹50 per scoop</p>
+            </div>
+            <div class="menu-item">
+                <h2>Cookie</h2>
+                <p>Chocolate chip, oatmeal raisin, or peanut butter.</p>
+                <p class="price">₹100</p>
+            </div>
+            <div class="menu-item">
+                <h2>Tiramisu</h2>
+                <p>Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cheese.</p>
+                <p class="price">₹400</p>
+            </div>
+            <div class="menu-item">
+                <h2>Cheesecake</h2>
+                <p>Rich and creamy cheesecake with a graham cracker crust.</p>
+                <p class="price">₹340</p>
+            </div>
+            <div class="menu-item">
+                <h2>Panna Cotta</h2>
+                <p>Silky Italian dessert made with cream and vanilla.</p>
+                <p class="price">₹400</p>
+            </div>
+            <div class="menu-item">
+                <h2>Fruit Tart</h2>
+                <p>Fresh fruit on a pastry crust with creamy filling.</p>
+                <p class="price">₹550</p>
+            </div>
+        </main>
+        </div>
+    </body>
+    </html>
